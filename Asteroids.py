@@ -113,12 +113,17 @@ if filter_bt:
         Close_Approach_Date,
         Potentially_Hazardous
         HAVING
-        (Magnitude BETWEEN ({from_magnitude}) AND ({to_magnitude})) AND
-        (Min_Estimated_Diameter_km BETWEEN ({from_Min_ED}) AND ({to_Min_ED2})) AND 
-        (Max_Estimated_Diameter_km BETWEEN ({from_Max_ED1}) AND ({to_Max_ED2})) AND
-        (Asteroids_Velocity_kmph BETWEEN ({from_Ast_velocity}) AND ({to_Ast_velocity})) AND 
-        (Astronomical_Unit BETWEEN ({from_Max_ED1}) AND ({to_Max_ED2})) AND
-        (Potentially_Hazardous={Hazardous})
+        Magnitude>={from_magnitude} 
+        AND Magnitude<={to_magnitude} 
+        AND Min_Estimated_Diameter_km>={from_Min_ED} 
+        AND Min_Estimated_Diameter_km<={to_Min_ED2}
+        AND Max_Estimated_Diameter_km>={from_Max_ED1} 
+        AND Max_Estimated_Diameter_km<={to_Max_ED2}
+        AND Asteroids_Velocity_kmph>={from_Ast_velocity}
+        AND Asteroids_Velocity_kmph<={to_Ast_velocity}
+        AND Astronomical_Unit>={from_Max_ED1}
+        AND Astronomical_Unit<={to_Max_ED2} 
+        AND Potentially_Hazardous={Hazardous}
         ORDER BY Close_Approach_Date
         ;"""
     df= pd.read_sql(query,connection)
