@@ -279,7 +279,7 @@ elif options=="18. Find Top 10 close approaches asteroids near earth":
     st.dataframe(df)
 
 # 19. Find Top 10 asteroids with most count of approaches to Earth
-if options=="19. Find Top 10 asteroids with most count of approaches to Earth":
+elif options=="19. Find Top 10 asteroids with most count of approaches to Earth":
     query = """SELECT name NAME,
                 COUNT(id) as No_of_Approaches 
                 FROM asteroids 
@@ -292,7 +292,7 @@ if options=="19. Find Top 10 asteroids with most count of approaches to Earth":
     st.dataframe(df)
 
 # 20. Find Top 10 potentially hazardous asteroids with most count of approaches to Earth
-if options=="20. Find Top 10 potentially hazardous asteroids with most count of approaches to Earth":
+elif options=="20. Find Top 10 potentially hazardous asteroids with most count of approaches to Earth":
     query = """SELECT name NAME,
                 COUNT(id) as No_of_Approaches 
                 FROM asteroids 
